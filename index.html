@@ -7,164 +7,192 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
   </style>
   <script>
     function showSection(id) {
-      const section = document.getElementById(id);
-      if (section.classList.contains('d-none')) {
-        section.classList.remove('d-none');
-        section.scrollIntoView({ behavior: 'smooth' });
+      const sections = document.querySelectorAll(".page-section");
+      sections.forEach(section => section.classList.add('d-none'));
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.remove('d-none');
+        target.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+
+    function goHome() {
+      showSection("Home-page");
+    }
+
+    window.onload = function () {
+      goHome(); 
     }
   </script>
 </head>
 <body>
-    <div class="p-5 bg-primary text-white text-center">
-        <h1>แผ่นดินไหวร้ายแรง</h1>
-        <p></p> 
-      </div>
-      
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" href="#" onclick="showSection('Home page')">หน้าหลัก</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="showSection('earthquake')">สาเหตุการเกิด</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="showSection('earthquake-type')">ลักษณะการเกิดแผ่นดินไหว</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">วิธีการป้องกันตัว</a>
-            </li>
-          </ul>
+  <div class="p-5 bg-primary text-white text-center">
+    <h1>แผ่นดินไหวร้ายแรง</h1>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" onclick="showSection('Home-page')">หน้าหลัก</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('earthquake')">สาเหตุการเกิด</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('earthquake-type')">ลักษณะการเกิดแผ่นดินไหว</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('How to prevent')">วิธีการป้องกันตัว</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+  <div class="container mt-5 page-section" id="Home-page">
+    <div class="alert alert-warning mt-4">
+        <strong>แผ่นดินไหว:</strong> เป็นภัยพิบัติทางธรรมชาติที่ไม่สามารถคาดเดาได้ต้องมีสติอยู่ตลอด
+    </div>
+    <h2 class="text-center">ข่าวการเกิดภัยแผ่นดินไหวในประเทศไทยล่าสุด</h2>
+    <div class="card">
+        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/8e79/live/323634f0-0c47-11f0-ac9f-c37d6fd89579.jpg.webp" class="card-img-top" alt="แผ่นดินไหวในไทย" id="indoor-image">
+        <div class="card-body">
+            <h4 class="card-title" id="indoor-title">ข่าวแผ่นดินไหวที่ร้ายแรงที่เกิดขึ้นในประเทศไทย</h4>
+            <ul>
+                <li>จากกรณีเหตุแผ่นดินไหว ขนาด 8.2 ความลึก 10 กิโลเมตร มีศูนย์กลางอยู่ในประเทศเมียนมาทางทิศตะวันตกเฉียงเหนือของ อ.ปางมะผ้า จ.แม่ฮ่องสอน ประมาณ 326 กม. แรงสะเทือนถึงประเทศไทยหลายพื้นที่รวม 63 จังหวัด ละมีพื้นที่ได้รับความเสียหายจำนวน 18 จังหวัด รวมถึงในเขตพื้นที่กรุงเทพมหานคร และเกิดอาฟเตอร์ช็อกตามมาอีกหลายครั้ง จนสร้างความวิตกกังวลให้หลายๆคน วันนี้ขอย้อนดูไทม์ไลน์ตั้งแต่ขณะเกิดเหตุ ความโกลาหล และการระดมกำลังช่วยเหลือผู้ที่ติดใต้ซากตึกถล่ม </li>
+                
+            </ul>
         </div>
-      </nav>
-      <div class="container mt-5 d-none" id="Home page">
-        
-      </div>
-      
-            <div class="container mt-5 d-none" id="earthquake">
-          <br>
-              <img src="https://cdn.pixabay.com/photo/2016/09/12/21/57/earthquake-1665870_1280.jpg" width="1100" height="700">
-              <div class="container mt-15">
-              <br>
-              <h2><mark style=" background-color: rgb(255, 238, 0);">แผ่นดินไหวจากธรรมชาติ</mark></h2>
-              <p style="font-size:25px;">แผ่นดินไหวจากธรรมชาติเป็นธรณีพิบัติภัยชนิดหนึ่ง ส่วนมากเป็นปรากฏการณ์ทางธรรมชาติที่เกิดจากการสั่นสะเทือนของพื้นดิน อันเนื่องมาจากการปลดปล่อยพลังงานเพื่อระบายความเครียด ที่สะสมไว้ภายในโลกออกมาอย่างฉับพลันเพื่อปรับสมดุลของเปลือกโลกให้คงที่ โดยปกติเกิดจากการเคลื่อนไหวของรอยเลื่อน ภายในชั้นเปลือกโลกที่อยู่ด้านนอกสุดของโครงสร้างของโลก มีการเคลื่อนที่หรือเปลี่ยนแปลงอย่างช้า ๆ อยู่เสมอ (ดู การเคลื่อนที่ของแผ่นเปลือกโลก) แผ่นดินไหวจะเกิดขึ้นเมื่อความเค้นอันเป็นผลจากการเปลี่ยนแปลงมีมากเกินไป ภาวะนี้เกิดขึ้นบ่อยในบริเวณขอบเขตของแผ่นเปลือกโลก ที่ที่แบ่งชั้นเปลือกโลกออกเป็นธรณีภาค (lithosphere) เรียกแผ่นดินไหวที่เกิดขึ้นบริเวณขอบเขตของแผ่นเปลือกโลกนี้ว่า แผ่นดินไหวระหว่างแผ่น (interplate earthquake) ซึ่งเกิดได้บ่อยและรุนแรงกว่า แผ่นดินไหวภายในแผ่น (intraplate earthquake)</p>
-          <br>
-              <h2><mark style=" background-color: rgb(255, 238, 0);">แผ่นดินไหวจากการกระทำของมนุษย์</mark</h2>
-              <p style="font-size:25px;">มีทั้งทางตรงและทางอ้อม เช่น การระเบิด การทำเหมือง สร้างอ่างเก็บน้ำหรือเขื่อนใกล้รอยเลื่อน การทำงานของเครื่องจักรกล การจราจร เป็นต้น</p>
-          <br>
-              <h2><mark style=" background-color: rgb(255, 238, 0);">สาเหตุของแผ่นดินไหว</mark></h2>
-              <p style="font-size:25px;">สาเหตุของแผ่นดินไหวเกิดจากการเคลื่อนไหวของเปลือกโลก (earth crust) เนื่องจาก เปลือกโลกมีลักษณะเป็นแผ่น ๆ(plates) เรียงประกอบกันอยู่ เสมือน jigsaw puzzle ประกอบกับภายในโลกมีความร้อนสูงมากก่อให้เกิดกระแสหมุนเวียน (convection) ของแมนเทิล (mantle) การเคลื่อนไหวของเปลือกโลกมี 3 ลักษณะ
-              <br>
-              <br>
-                  1.ชนกัน (convergent plates)
-              <br>
-                  2.แยกหรือปริออกจากกัน (divergent plates)
-              <br>
-                  3.เคลื่อนที่ในลักษณะเสียดสีกัน (transform plates)
-              <br>
-              <br>
-                  เมื่อเปลือกโลกเกิดการเคลื่อนไหวไม่ว่าลักษณะใดลักษณะหนึ่งหรือผสมกันจะก่อให้เกิดรอย แตกของเปลือกโลกหรือหิน (fault) และการระเบิดของภูเขาไฟซึ่งจะก่อให้เกิดการสะสมของพลังงานจลน์ (kinetic energy) ในเปลือกโลกบริเวณนั้นและพลังงานนี้จะถูกปลดปล่อยและแปรรูปเป็นพลังงานความร้อนจนกระทั่งหมดและกลับสู่สภาวะสมดุลย์ แต่ในช่วงที่เกิดการสะสมของพลังงานจะเกิดแรงทางธรณีวิทยาแปรสัณฐาน (tectonic force) และก่อให้เกิดคลื่นแผ่นดินไหว(seismic waves) แพร่ออกไปทุกทิศทุกทางจากจุดแรกที่เกิดการสะสมพลังงานและพลังงานถูกปลดปล่อยออกไป (earthquake focus)
-              <br>
-              <br>
-                  คลื่นแผ่นดินไหวที่แพร่ออกมานี้เองก่อให้เกิดการสั่นสะเทือนและการทำลายเนื่องจาก คลื่นแผ่นดินไหวมีลักษณะการเคลื่อนที่ที่ซับซ้อนหลายระนาบทำให้เปลือกโลกที่คลื่นแผ่นดินไหวเคลื่อนที่ ผ่านเกิดอาการสั่นสะเทือนบิดเบี้ยวหรือพังทลายซึ่งความเสียหายดังกล่าวจะมากหรือน้อยขึ้นอยู่กับ พลังงานที่ถูกปลดปล่อยออกมาว่าจะมีขนาดมากน้อยแค่ไหน
-              <br>
-              <br>
-                  นอกจากนี้ยังมีสาเหตุอื่นๆที่อาจทำให้เกิดแผ่นดินไหวได้แต่ไม่ได้เป็นสาเหตุที่สำคัญและมี โอกาสเกิดน้อยมาก เช่น อุกาบาตตก การทดลองระเบิดนิวเคลียร์หรือการระเบิดอื่นๆ เป็นต้น
-                  </p>
-              </div>
-            <div class="col-sm-8">
+        <small class="text-muted">อ่านข้อมูลข่าวสารเพิ่มเติมได้ที่: <a href="https://www.thaipbs.or.th/news/content/350831" target="_blank">Thaipbs</a></small>
+    </div>
+  </div>
+
+  
+  <div class="container mt-5 d-none page-section" id="earthquake">
+    <h2 class="text-danger text-center">สาเหตุของแผ่นดินไหว</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/09/12/21/57/earthquake-1665870_1280.jpg" class="img-fluid mb-4">
+    br>
+        <h2><mark style=" background-color: rgb(255, 238, 0);">แผ่นดินไหวจากธรรมชาติ</mark></h2>
+        <p style="font-size:25px;">แผ่นดินไหวจากธรรมชาติเป็นธรณีพิบัติภัยชนิดหนึ่ง ส่วนมากเป็นปรากฏการณ์ทางธรรมชาติที่เกิดจากการสั่นสะเทือนของพื้นดิน อันเนื่องมาจากการปลดปล่อยพลังงานเพื่อระบายความเครียด ที่สะสมไว้ภายในโลกออกมาอย่างฉับพลันเพื่อปรับสมดุลของเปลือกโลกให้คงที่ โดยปกติเกิดจากการเคลื่อนไหวของรอยเลื่อน ภายในชั้นเปลือกโลกที่อยู่ด้านนอกสุดของโครงสร้างของโลก มีการเคลื่อนที่หรือเปลี่ยนแปลงอย่างช้า ๆ อยู่เสมอ (ดู การเคลื่อนที่ของแผ่นเปลือกโลก) แผ่นดินไหวจะเกิดขึ้นเมื่อความเค้นอันเป็นผลจากการเปลี่ยนแปลงมีมากเกินไป ภาวะนี้เกิดขึ้นบ่อยในบริเวณขอบเขตของแผ่นเปลือกโลก ที่ที่แบ่งชั้นเปลือกโลกออกเป็นธรณีภาค (lithosphere) เรียกแผ่นดินไหวที่เกิดขึ้นบริเวณขอบเขตของแผ่นเปลือกโลกนี้ว่า แผ่นดินไหวระหว่างแผ่น (interplate earthquake) ซึ่งเกิดได้บ่อยและรุนแรงกว่า แผ่นดินไหวภายในแผ่น (intraplate earthquake)</p>
+    <br>
+        <h2><mark style=" background-color: rgb(255, 238, 0);">แผ่นดินไหวจากการกระทำของมนุษย์</mark</h2>
+        <p style="font-size:25px;">มีทั้งทางตรงและทางอ้อม เช่น การระเบิด การทำเหมือง สร้างอ่างเก็บน้ำหรือเขื่อนใกล้รอยเลื่อน การทำงานของเครื่องจักรกล การจราจร เป็นต้น</p>
+    <br>
+        <h2><mark style=" background-color: rgb(255, 238, 0);">สาเหตุของแผ่นดินไหว</mark></h2>
+        <p style="font-size:25px;">สาเหตุของแผ่นดินไหวเกิดจากการเคลื่อนไหวของเปลือกโลก (earth crust) เนื่องจาก เปลือกโลกมีลักษณะเป็นแผ่น ๆ(plates) เรียงประกอบกันอยู่ เสมือน jigsaw puzzle ประกอบกับภายในโลกมีความร้อนสูงมากก่อให้เกิดกระแสหมุนเวียน (convection) ของแมนเทิล (mantle) การเคลื่อนไหวของเปลือกโลกมี 3 ลักษณะ
+        <br>
+        <br>
+            1.ชนกัน (convergent plates)
+        <br>
+            2.แยกหรือปริออกจากกัน (divergent plates)
+        <br>
+            3.เคลื่อนที่ในลักษณะเสียดสีกัน (transform plates)
+        <br>
+        <br>
+            เมื่อเปลือกโลกเกิดการเคลื่อนไหวไม่ว่าลักษณะใดลักษณะหนึ่งหรือผสมกันจะก่อให้เกิดรอย แตกของเปลือกโลกหรือหิน (fault) และการระเบิดของภูเขาไฟซึ่งจะก่อให้เกิดการสะสมของพลังงานจลน์ (kinetic energy) ในเปลือกโลกบริเวณนั้นและพลังงานนี้จะถูกปลดปล่อยและแปรรูปเป็นพลังงานความร้อนจนกระทั่งหมดและกลับสู่สภาวะสมดุลย์ แต่ในช่วงที่เกิดการสะสมของพลังงานจะเกิดแรงทางธรณีวิทยาแปรสัณฐาน (tectonic force) และก่อให้เกิดคลื่นแผ่นดินไหว(seismic waves) แพร่ออกไปทุกทิศทุกทางจากจุดแรกที่เกิดการสะสมพลังงานและพลังงานถูกปลดปล่อยออกไป (earthquake focus)
+        <br>
+        <br>
+            คลื่นแผ่นดินไหวที่แพร่ออกมานี้เองก่อให้เกิดการสั่นสะเทือนและการทำลายเนื่องจาก คลื่นแผ่นดินไหวมีลักษณะการเคลื่อนที่ที่ซับซ้อนหลายระนาบทำให้เปลือกโลกที่คลื่นแผ่นดินไหวเคลื่อนที่ ผ่านเกิดอาการสั่นสะเทือนบิดเบี้ยวหรือพังทลายซึ่งความเสียหายดังกล่าวจะมากหรือน้อยขึ้นอยู่กับ พลังงานที่ถูกปลดปล่อยออกมาว่าจะมีขนาดมากน้อยแค่ไหน
+        <br>
+        <br>
+            นอกจากนี้ยังมีสาเหตุอื่นๆที่อาจทำให้เกิดแผ่นดินไหวได้แต่ไม่ได้เป็นสาเหตุที่สำคัญและมี โอกาสเกิดน้อยมาก เช่น อุกาบาตตก การทดลองระเบิดนิวเคลียร์หรือการระเบิดอื่นๆ เป็นต้น
+            </p>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-secondary" onclick="goHome()">กลับหน้าหลัก</button>
+    </div>
+  </div>
+
+
+  <div class="container mt-5 d-none page-section" id="earthquake-type">
+    <h2 class="p-3 text-bg-danger text-center"><strong>สาเหตุของการเกิดแผ่นดินไหว</strong></h2>
+    <h5>สามารถแบ่งออกเป็น <mark>2</mark> ประเภทหลัก ๆ ดังนี้:</h5>
+    <h4 class="text-success">1. สาเหตุทางธรรมชาติ</h4>
+    <ol>
+      <li><strong>การเคลื่อนที่ของแผ่นเปลือกโลก:</strong> แผ่นเปลือกโลกเคลื่อนที่ไปชนกัน, แยกออก หรือเลื่อนเฉือนกัน จุดที่เกิดการเลื่อนเรียกว่า "แนวรอยเลื่อน"</li>
+      <li><strong>ภูเขาไฟระเบิด:</strong> ทำให้เกิดแผ่นดินไหวภูเขาไฟ</li>
+      <li><strong>การยุบตัวของเปลือกโลก:</strong> เช่น ถ้ำยุบ</li>
+      <li><strong>แรงโน้มถ่วงจากดวงจันทร์:</strong> มีผลเล็กน้อย</li>
+    </ol>
+    <img src="https://researchcafe.tsri.or.th/wp-content/uploads/2020/04/1-4.jpg" class="img-thumbnail" width="200" height="200" alt="ภาพแผ่นดินไหวธรรมชาติ">
+    <p>ภาพตัวอย่างแผ่นดินไหวทางธรรมชาติ</p>
+
+    <h4 class="text-primary">2. สาเหตุจากมนุษย์</h4>
+    <ol>
+      <li><strong>การระเบิดใต้ดิน</strong></li>
+      <li><strong>การทำเหมืองแร่</strong></li>
+      <li><strong>การฉีดหรือดูดของเหลวใต้ดิน</strong></li>
+      <li><strong>การก่อสร้างเขื่อน</strong></li>
+    </ol>
+    <img src="https://i0.wp.com/www.mitrearth.org/wp-content/uploads/2019/07/4-2-0.jpg?resize=750%2C375" class="img-thumbnail" width="200" height="200" alt="ภาพแผ่นดินไหวจากมนุษย์">
+    <p>ภาพตัวอย่างแผ่นดินไหวจากมนุษย์</p>
+
+
+    <div class="text-center mt-4">
+      <button class="btn btn-secondary" onclick="goHome()">กลับหน้าหลัก</button>
+    </div>
+  </div>
+  
+  <div class="container mt-5 d-none page-section" id="How to prevent">
+    <h2 class="text-danger" id="title">วิธีการป้องกันตัวเมื่อเจอกับแผ่นดินไหว</h2>
+    <p>แผ่นดินไหวอาจเกิดขึ้นได้ทุกเมื่อโดยไม่มีการเตือนล่วงหน้า การเตรียมตัวและปฏิบัติอย่างถูกต้องจะช่วยลดความเสี่ยงต่อชีวิตและทรัพย์สินได้</p>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="https://static.trueplookpanya.com/tppy/member/m_557500_560000/559381/cms/images/Safe%20During%20an%20Earthquake%202.jpg" class="card-img-top" alt="ป้องกันตัวในอาคาร" id="indoor-image">
+                <div class="card-body">
+                    <h4 class="card-title" id="indoor-title">1. หากอยู่ในอาคาร</h4>
+                    <ul>
+                        <li>หากเป็นไปได้ให้รีบออกมานอกอาคารทันทีโดยใช้บันได</li>
+                        <li>หมอบลง ใช้แขนป้องกันศีรษะ</li>
+                        <li>อยู่ใต้โต๊ะที่แข็งแรง</li>
+                        <li>อยู่ห่างจากหน้าต่างและสิ่งของที่อาจตกลงมา</li>
+                        <li>ห้ามใช้ลิฟต์</li>
+                    </ul>
+                </div>
+                <small class="text-muted">ที่มาของภาพ: <a href="https://www.trueplookpanya.com/knowledge/content/93550-per-" target="_blank">TruePlookPanya</a></small>
+            </div>
         </div>
-        </body>
-      </html>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container mt-5 d-none" id="earthquake-type">
-  <h2 class="p-3 text-bg-danger text-center"><strong>สาเหตุของการเกิดแผ่นดินไหว</strong></h2>
-  <h5>สามารถแบ่งออกเป็น <mark>2</mark> ประเภทหลัก ๆ ดังนี้:</h5>
-  <h4 class="text-success">1. สาเหตุทางธรรมชาติ</h4>
-  <ol>
-    <li>
-      <strong>การเคลื่อนที่ของแผ่นเปลือกโลก</strong>  
-      แผ่นเปลือกโลกเคลื่อนที่ไปชนกัน, แยกออก หรือเลื่อนเฉือนกัน จุดที่เกิดการเลื่อนเรียกว่า "แนวรอยเลื่อน"
-    </li>
-    <li>
-      <strong>ภูเขาไฟระเบิด</strong>  
-      การปะทุของภูเขาไฟสามารถทำให้เกิดแผ่นดินไหวที่เรียกว่า "แผ่นดินไหวภูเขาไฟ"
-    </li>
-    <li>
-      <strong>การยุบตัวของเปลือกโลก</strong>  
-      เช่น ถ้ำยุบ หรือโพรงใต้ดินพังลง ทำให้เกิดแรงสะเทือน
-    </li>
-    <li>
-      <strong>แรงโน้มถ่วงของดวงจันทร์และดวงอาทิตย์:</strong>  
-      มีผลเพียงเล็กน้อย ไม่ทำให้เกิดแผ่นดินไหวรุนแรง
-    </li>
-  </ol>
-  <img src="https://researchcafe.tsri.or.th/wp-content/uploads/2020/04/1-4.jpg" class="img-thumbnail" alt="ภาพตัวอย่างแผ่นดินไหวทางธรรมชาติ" width="200" height="200"> 
-  <p>ภาพตัวอย่างแผ่นดินไหวทางธรรมชาติ</p>
-  <h4 class="text-primary">2. สาเหตุจากมนุษย์ </h4>
-  <ol>
-    <li>
-      <strong>การระเบิดใต้ดิน:</strong> เช่น การทดลองนิวเคลียร์
-    </li>
-    <li>
-      <strong>การทำเหมืองแร่ขนาดใหญ่</strong>
-    </li>
-    <li>
-      <strong>การฉีดหรือดูดของเหลวใต้ดิน:</strong> เช่น การขุดเจาะน้ำมัน
-    </li>
-    <li>
-      <strong>การก่อสร้างเขื่อนขนาดใหญ่:</strong> ทำให้เกิดแรงกดทับในพื้นที่นั้น
-    </li>
-  </ol>
-  <img src="https://i0.wp.com/www.mitrearth.org/wp-content/uploads/2019/07/4-2-0.jpg?resize=750%2C375" class="img-thumbnail" alt="ภาพตัวอย่างแผ่นดินไหวจากมนุษย์" width="200" height="200"> 
-  <p>ภาพตัวอย่างแผ่นดินไหวจากมนุษย์</p>
+        <div class="col-md-6">
+            <div class="card">
+                <img src="https://www.expedia.co.th/stories/wp-content/uploads/2022/07/info-earthquake-01.png" class="card-img-top" alt="ป้องกันตัวกลางแจ้ง" id="outdoor-image">
+                <div class="card-body">
+                    <h4 class="card-title" id="outdoor-title">2. หากอยู่กลางแจ้ง</h4>
+                    <ul>
+                        <li>อยู่ให้ห่างจากอาคาร ต้นไม้ และสายไฟฟ้า</li>
+                        <li>หากอยู่ใกล้ชายหาด รีบอพยพไปที่สูงเพื่อหลีกเลี่ยงสึนามิ</li>
+                    </ul>
+                </div>
+                <small class="text-muted">ที่มาของภาพ: <a href="https://www.expedia.co.th/stories/travel-tips-inspiration/what_to_do_during_an_earthquake/" target="_blank">Expedia</a></small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="alert alert-warning mt-4">
+        <strong>คำแนะนำ:</strong> ควรเตรียมอุปกรณ์ฉุกเฉิน เช่น ไฟฉาย วิทยุแบตเตอรี่ อาหาร และน้ำดื่ม
+    </div>
+    
+    <blockquote class="blockquote mt-4">
+        <p>"การเตรียมตัวที่ดีช่วยลดความเสียหายและช่วยชีวิตได้มากขึ้น"</p>
+    </blockquote>
+    
+    <p class="mt-4">ดูข้อมูลเพิ่มเติมเกี่ยวกับการป้องกันแผ่นดินไหวได้ที่:</p>
+    <a href="https://www.expedia.co.th/stories/travel-tips-inspiration/what_to_do_during_an_earthquake/" class="btn btn-primary" id="read-more">อ่านเพิ่มเติม</a>
+    <div class="text-center mt-4">
+        <button class="btn btn-secondary" onclick="goHome()">กลับหน้าหลัก</button>
+      </div>
 </div>
 <div class="mt-5 p-4 bg-dark text-white text-center">
-  <p>Thank you</p>
-  </div>
-  </body>
-  </html>
+<p>Thank you</p>
+</div>
+</body>
+</html>
